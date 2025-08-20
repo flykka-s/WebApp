@@ -1,0 +1,8 @@
+PowerShell:
+cd Путь до проекта
+dotnet restore
+dotnet build
+dotnet run --urls "http://localhost:7230"
+
+Открываем страницу
+https://localhost:7230/swagger/index.html

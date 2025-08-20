@@ -1,0 +1,43 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Web",
+    "version": "1.0"
+  },
+  "paths": {
+    "/Weeb/Загрузка": {
+      "post": {
+        "tags": [
+          "Weeb"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Weeb/Поиск": {
+      "get": {
+        "tags": [
+          "Weeb"
+        ],
+        "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

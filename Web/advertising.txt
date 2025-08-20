@@ -1,0 +1,15 @@
+Яндекс.Директ:/ru
+Ревдинский рабочий:/ru/svrd/revda,/ru/svrd/pervik
+Газета уральских москвичей:/ru/msk,/ru/permobl,/ru/chelobl
+Крутая реклама:/ru/svrd
+Нижегородские вести:/ru/nn,/ru/nn/volzhsk
+Вестник Поволжья:/ru/volga,/ru/samobl
+Московский курьер:/ru/msk,/ru/msk/central
+Петербургский дневник:/ru/spb,/ru/spb/lenobl
+Владивостокская правда:/ru/dv,/ru/dv/primorye
+Новосибирские новости:/ru/sib,/ru/nsoblast
+Красноярский стандарт:/ru/sib/krasnoyarsk,/ru/sib/taymyr
+Калининградская звезда:/ru/kaliningrad,/ru/kaliningrad/spb
+Тольяттинская газета:/ru/volga/togliatti,/ru/volga/samara
+Самарский вестник:/ru/volga/samara,/ru/volga/ufa
+Свердловский курьер:/ru/svrd/ekb,/ru/svrd/tyumen

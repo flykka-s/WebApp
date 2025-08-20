@@ -1,0 +1,4 @@
+D:\Projects\Web\Web\bin\Release\net8.0\win-x64\publish\appsettings.Development.json
+D:\Projects\Web\Web\bin\Release\net8.0\win-x64\publish\appsettings.json
+D:\Projects\Web\Web\bin\Release\net8.0\win-x64\publish\Web.pdb
+D:\Projects\Web\Web\bin\Release\net8.0\win-x64\publish\Web.exe
