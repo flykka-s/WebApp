@@ -1,0 +1,48 @@
+/* Стиль для кнопки перехода на главную */
+.home-button {
+    background: linear-gradient(45deg, #007bff, #0056b3) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 8px 16px !important;
+    margin-right: 10px !important;
+    cursor: pointer !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
+}
+
+.home-button:hover {
+    background: linear-gradient(45deg, #0056b3, #004494) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    text-decoration: none !important;
+    color: white !important;
+}
+
+/* Иконка дома */
+.home-button::before {
+    content: "🏠 ";
+    margin-right: 5px;
+}
+
+/* Размещение кнопки в топбаре */
+.topbar-wrapper .link {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .home-button {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+        margin-right: 5px !important;
+    }
+    
+    .home-button::before {
+        content: "🏠" !important;
+        margin-right: 3px !important;
+    }
+}

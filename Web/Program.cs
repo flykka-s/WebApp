@@ -1,7 +1,7 @@
 using Web.Services;
-using YourProjectName.Services;
+using Microsoft.OpenApi.Models;
 
-    var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
     // Add services to the container.
 
@@ -23,7 +23,21 @@ using YourProjectName.Services;
     builder.Services.AddHttpClient();
     builder.Services.AddScoped<IAdvertisingService, AdvertisingService>();
 
+    // Настройка Swagger с кастомным CSS и JavaScript
+    builder.Services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = "Advertising API",
+            Version = "v1",
+            Description = "API для управления рекламными площадками"
+        });
+
+    });
+
+
 var app = builder.Build();
+
 
 
 
@@ -31,8 +45,21 @@ var app = builder.Build();
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
-    }
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Advertising API v1");
+            c.RoutePrefix = "swagger";
+            c.IndexStream = () => File.OpenRead("wwwroot/swagger/index.html");
+            //c.SwaggerEndpoint("/swagger/v1/swagger.json", "Advertising API v1");
+            //c.RoutePrefix = "swagger"; // Доступ по /swagger
+            //c.DocumentTitle = "Advertising API Documentation";
+
+            //// ПРАВИЛЬНОЕ место для InjectStylesheet и InjectJavascript
+            //c.SwaggerEndpoint("/swagger/v1/swagger.json", "Advertising API v1");
+            //c.RoutePrefix = "swagger"; // Доступ по /swagger
+            //c.DocumentTitle = "Advertising API Documentation";
+        });
+}
 
     app.UseHttpsRedirection();
 

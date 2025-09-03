@@ -1,7 +1,7 @@
 using System.Text.Json;
 using Web.Models;
 
-namespace YourProjectName.Services
+namespace Web.Services
 {
     public class StreamingJsonProcessor
     {
