@@ -1,0 +1,25 @@
+@model Web.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Главная страница";
+}
+
+<h1>Система управления рекламными площадками</h1>
+
+<div class="stats">
+    <div class="card">
+        <h3>Всего площадок</h3>
+        <p>@Model.TotalPlatforms</p>
+    </div>
+    <div class="card">
+        <h3>Последнее обновление</h3>
+        <p>@Model.LastUpdate.ToString("dd.MM.yyyy HH:mm")</p>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Быстрые действия</h3>
+    <p>
+        <a href="/api/advertising">Просмотр всех данных (JSON)</a> |
+        <a href="/Home/Statistics">Подробная статистика</a>
+    </p>
+</div>

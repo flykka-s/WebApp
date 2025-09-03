@@ -1,0 +1,48 @@
+@model Web.Models.StatsViewModel
+@{
+    ViewData["Title"] = "Статистика системы";
+}
+
+<h1>Статистика обработки данных</h1>
+
+<div class="stats">
+    <div class="card">
+        <h3>Всего площадок</h3>
+        <p>@Model.TotalPlatforms</p>
+    </div>
+    <div class="card">
+        <h3>Всего путей</h3>
+        <p>@Model.TotalPaths</p>
+    </div>
+    <div class="card">
+        <h3>Использование памяти</h3>
+        <p>@Model.MemoryUsage</p>
+    </div>
+</div>
+
+@if (Model.LastParsingResult != null)
+{
+    <div class="card">
+        <h3>Последняя обработка</h3>
+        <p>@Model.LastParsingResult.Summary</p>
+        <p>Время обработки: @Model.LastParsingResult.ProcessingTime.ToString(@"hh\:mm\:ss")</p>
+        <p>Ошибок: @Model.LastParsingResult.Errors.Count</p>
+    </div>
+}
+
+<div class="card">
+    <h3>Список площадок (@Model.PlatformNames.Count)</h3>
+    <details>
+        <summary>Показать список</summary>
+        <ul>
+            @foreach (var name in Model.PlatformNames.Take(20))
+            {
+                <li>@name</li>
+            }
+            @if (Model.PlatformNames.Count > 20)
+            {
+                <li>... и еще @(Model.PlatformNames.Count - 20)</li>
+            }
+        </ul>
+    </details>
+</div>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Рекламные площадки</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .navbar { background: #007bff; padding: 1rem; margin-bottom: 2rem; }
+        .navbar a { color: white; text-decoration: none; margin-right: 1rem; padding: 0.5rem; }
+        .navbar a:hover { background: #0056b3; }
+        .card { border: 1px solid #ddd; padding: 1rem; margin: 1rem 0; border-radius: 5px; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/home">Главная</a>
+        <a href="/info">Информация</a>
+        <a href="/stats">Статистика</a>
+        <!--<a href="/api/advertising">API</a>-->
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

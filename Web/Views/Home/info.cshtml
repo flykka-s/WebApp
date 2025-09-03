@@ -1,0 +1,23 @@
+@model Web.Models.InfoViewModel
+@{
+    ViewData["Title"] = "Информация о системе";
+}
+
+<h1>@Model.Title</h1>
+<p>@Model.Description</p>
+
+<div class="card">
+    <h3>Возможности системы</h3>
+    <ul>
+        @foreach (var feature in Model.Features)
+        {
+            <li>@feature</li>
+        }
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Контактная информация</h3>
+    <p>Email: <a href="mailto:@Model.ContactEmail">@Model.ContactEmail</a></p>
+    <p>Версия: @Model.Version</p>
+</div>
