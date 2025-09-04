@@ -10,32 +10,41 @@ namespace Web.Controllers
         //{
         //    return View();
         //}
-        private readonly IAdvertisingService _advertisingService;
 
+        private readonly IAdvertisingService _advertisingService; // Приватное поле для сервиса работы с данными (внедрение зависимости)
+
+        // Конструктор контроллера, принимающий зависимость IAdvertisingService
         public HomeController(IAdvertisingService advertisingService)
         {
             _advertisingService = advertisingService;
         }
 
+        // HTTP GET метод для главной страницы
         [HttpGet]
         public IActionResult Index()
         {
-            var stats = _advertisingService.GetLastParsingResult();
-            var platforms = _advertisingService.GetAllPlatforms();
+            
+            var stats = _advertisingService.GetLastParsingResult(); // Получение статистики последней обработки данных из сервиса
+            var platforms = _advertisingService.GetAllPlatforms();  // Получение всех рекламных площадок из сервиса
 
+            // Создание модели представления для главной страницы
             var model = new HomeViewModel
             {
-                TotalPlatforms = platforms.Count,
-                LastProcessingTime = stats?.ProcessingTime ?? TimeSpan.Zero,
-                LastUpdate = DateTime.Now
+                
+                TotalPlatforms = platforms.Count,   // Установка общего количества площадок
+                LastProcessingTime = stats?.ProcessingTime ?? TimeSpan.Zero,    // Установка времени последней обработки (если есть статистика) или TimeSpan.Zero
+                LastUpdate = DateTime.Now   // Установка времени последнего обновления (текущее время)
             };
-
+            // Возврат представления с созданной моделью
             return View(model);
         }
 
+
+        // HTTP GET метод для страницы информации с указанием маршрута "info"
         [HttpGet("info")]
         public IActionResult Info()
         {
+            // Создание модели представления для страницы информации
             var model = new InfoViewModel
             {
                 Title = "Информация о системе",
@@ -54,11 +63,14 @@ namespace Web.Controllers
             return View(model);
         }
 
+
+        // HTTP GET метод для страницы статистики с указанием маршрута "stats"
         [HttpGet("stats")]
         public IActionResult Statistics()
         {
-            var stats = _advertisingService.GetLastParsingResult();
-            var platforms = _advertisingService.GetAllPlatforms();
+           
+            var stats = _advertisingService.GetLastParsingResult(); // Получение статистики последней обработки данных из сервиса
+            var platforms = _advertisingService.GetAllPlatforms();  // Получение всех площадок из сервиса
 
             var model = new StatsViewModel
             {
