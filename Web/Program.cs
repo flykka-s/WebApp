@@ -32,15 +32,15 @@ var builder = WebApplication.CreateBuilder(args);  // Создание билдера приложени
     builder.Services.AddScoped<IAdvertisingService, AdvertisingService>(); // Регистрация сервиса с его реализацией
 
 // Настройка Swagger с кастомным css и js
-builder.Services.AddSwaggerGen(c =>
+    builder.Services.AddSwaggerGen(c =>
     {   
-        // Конфигурация документа Swagger
-        c.SwaggerDoc("v1", new OpenApiInfo
-        {
-            Title = "Advertising API",
-            Version = "v1",
-            Description = "API для управления рекламными площадками"
-        });
+            // Конфигурация документа Swagger
+            c.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Title = "Advertising API",
+                Version = "v1",
+                Description = "API для управления рекламными площадками"
+            });
 
     });
 
@@ -51,9 +51,7 @@ builder.Services.AddSwaggerGen(c =>
 
 
     // Настройка конвейера обработки HTTP-запросов
-
     // Включение Swagger только в режиме разработки
-
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
         {

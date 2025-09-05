@@ -3,23 +3,67 @@
     ViewData["Title"] = "Главная страница";
 }
 
-<h1>Система управления рекламными площадками</h1>
+<div class="hero">
+    <h1>🚀 Система управления рекламными площадками</h1>
+    <p>Эффективное управление и анализ рекламных кампаний</p>
+</div>
 
-<div class="stats">
-    <div class="card">
-        <h3>Всего площадок</h3>
-        <p>@Model.TotalPlatforms</p>
+<div class="stats-grid">
+    <div class="stat-card">
+        <h3>📈 Всего площадок</h3>
+        <p class="stat-number">@Model.TotalPlatforms</p>
     </div>
-    <div class="card">
-        <h3>Последнее обновление</h3>
-        <p>@Model.LastUpdate.ToString("dd.MM.yyyy HH:mm")</p>
+    <div class="stat-card">
+        <h3>⏱️ Последнее обновление</h3>
+        <p class="stat-number">@Model.LastUpdate.ToString("dd.MM.yyyy HH:mm")</p>
+    </div>
+    <div class="stat-card">
+        <h3>🔄 Время обработки</h3>
+        <p class="stat-number">@Model.LastProcessingTime.ToString(@"hh\:mm\:ss")</p>
     </div>
 </div>
 
 <div class="card">
-    <h3>Быстрые действия</h3>
-    <p>
-        <a href="/api/advertising">Просмотр всех данных (JSON)</a> |
-        <a href="/stat">Подробная статистика</a>
-    </p>
+    <h2>🎯 Быстрые действия</h2>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/swagger/index.html" class="btn">📋 Просмотр всех данных</a>
+        <a href="/stat" class="btn">📊 Подробная статистика</a>
+        <a href="/info" class="btn">ℹ️ О системе</a>
+    </div>
 </div>
+
+<div class="card">
+    <h2>⚡ Последние операции</h2>
+    <p>Здесь может отображаться история последних действий...</p>
+</div>
+
+<style>
+    .hero {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .hero h1 {
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+    .hero p {
+        color: #666;
+        font-size: 1.2rem;
+    }
+    .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0.5rem 0 0 0;
+    }
+    .btn {
+        background: #007bff;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+    }
+    .btn:hover {
+        background: #0056b3;
+    }
+</style>
